@@ -1,19 +1,20 @@
 function meuEscopo () {
-    const form = document.querySelector('.formulario');
-    const resultado = document.querySelector('.resultado');
+    const form = document.querySelector('.formulario'); // selecionando o formulario
+    const resultado = document.querySelector('.resultado'); // selecionando a div resultado
 
-    function recebeEventoForm (evento) {
+    function recebeEventoForm (evento) { // criando o evento
         evento.preventDefault();
 
-        const peso = form.querySelector('.peso');
-        const altura = form.querySelector('.altura');
+        const peso = form.querySelector('.peso'); // pegando o peso 
+        const altura = form.querySelector('.altura'); // pegando a altura
 
-        const pesoConv = Number(peso.value)
-        const alturaConv = Number(altura.value)
+        const pesoConv = Number(peso.value) // convertendo o peso para Number
+        const alturaConv = Number(altura.value) // convertendo a altura para Number
         
-        const imc = pesoConv / alturaConv ** 2
-        const arredondamento = Number(imc.toFixed(2));
+        const imc = pesoConv / alturaConv ** 2 // fazendo o calculo do imc
+        const arredondamento = Number(imc.toFixed(2)); // arredondando para ficar so com duas casas decimais 
 
+        // criação das condições
         if (imc < 18.5) {
             resultado.innerHTML = `<p>Seu IMC é ${arredondamento} (Abaixo do peso)</p>`;
             resultado.style.backgroundColor = 'green';
@@ -50,7 +51,7 @@ function meuEscopo () {
         }
     }
 
-    form.addEventListener('submit', recebeEventoForm);
+    form.addEventListener('submit', recebeEventoForm); // Adicionando o evento ao submit
 }
 
 meuEscopo();
